@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// const host = "http://localhost:5000"
+const host = "https://mynote-book-app-backened.herokuapp.com"
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "" });
     let history = useNavigate();
@@ -11,7 +13,7 @@ const Signup = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+        const response = await fetch(`${host}/api/auth/createuser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
